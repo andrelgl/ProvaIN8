@@ -14,4 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route:: get('traineers', 'TraineerController@getAll');
-Route:: post('traineers', 'TraineerController@create');
+Route:: post('traineers', 'TraineerController@store');

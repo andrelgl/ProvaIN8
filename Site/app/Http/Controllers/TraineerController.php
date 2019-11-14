@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Trainee;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class TraineerController extends Controller
@@ -14,10 +15,11 @@ class TraineerController extends Controller
     return $traineers->toJson();
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
-        $validatedData = $request -> validade([
-            'name' => 'required',
+
+        $validatedData = $request->validate([
+            'name' => 'required|min:3',
             'email' => 'required',
             'date_birth' => 'required',
             'telephone' => 'required',
