@@ -1,4 +1,5 @@
-.TopImage {
-  background-image: url(/images/index-original.jpg?efd34a0cf4f844ba28e806854bda8b85);
+body {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 

@@ -1,23 +1,25 @@
- import React, { Component } from 'react'
- import ReactDOM from 'react-dom'
- import { BrowserRouter } from 'react-router-dom'
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 
- import Header from '../components/header/Header'
+import Header from '../components/header'
+import Register from '../components/register'
+import Table from '../components/table'
+import Footer from '../components/footer'
 
- class App extends Component {
-   render () {
-     return (
-       <BrowserRouter>
-         <div>
-             <div className='TopImage'></div>
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
             <Header />
-            <div>
-                Teste
-            </div>
+            <Register />
+            <Table />
+            <Footer />
         </div>
-       </BrowserRouter>
-     )
-   }
- }
+      </BrowserRouter>
+    )
+  }
+}
 
- ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(<App />, document.getElementById('app'))
