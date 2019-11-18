@@ -1,9 +1,10 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
+import Variables from '../utils/variables'
 
 const useStyles = createUseStyles({
     container: {
-        backgroundColor: '#29abe2',
+        backgroundColor: `${Variables.colors.registerBackground}`,
         height: '920px'
     }
 })

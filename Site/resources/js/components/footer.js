@@ -1,13 +1,13 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
-import GetImage from '../utils/getImage'
+import Variables from '../utils/variables'
 
 const useStyles = createUseStyles({
     container: {
-        backgroundImage: `url(${GetImage.rodapeDesktop})`,
+        backgroundImage: `url(${Variables.images.rodapeDesktop})`,
         height: '334px',
         '@media (max-width: 768px)': {
-            backgroundImage: `url(${GetImage.rodapeMobile})`,
+            backgroundImage: `url(${Variables.images.rodapeMobile})`,
             height: '756px'
         },
         backgroundPosition: 'center center',

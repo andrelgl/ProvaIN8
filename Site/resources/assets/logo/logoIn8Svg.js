@@ -1,9 +1,7 @@
+import React from 'React';
+
+const LogoIno8 = () =>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170.56 40">
-    <defs>
-        <style>
-            .cls-1,.cls-2{fill:#fff}.cls-1{fill-rule:evenodd}.cls-3{fill:#7a2158}.cls-4{fill:#bfbfbf}
-        </style>
-    </defs>
     <title>
         logo-in8-dev0
     </title>
@@ -34,3 +32,6 @@
         </g>
     </g>
 </svg>
+
+export default LogoIno8
+

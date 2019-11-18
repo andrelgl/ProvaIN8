@@ -1,13 +1,13 @@
 import React from 'react'
-import GetImage from '../utils/getImage'
 import Navbar from './Navbar'
 import { createUseStyles } from 'react-jss'
+import Variables from '../utils/variables'
 
 const useStyle = createUseStyles({
     container: {
-        backgroundImage: `url(${GetImage.indexImage})`,
+        backgroundImage: `url(${Variables.images.indexImage})`,
         '@media (max-width: 768px)': {
-            backgroundImage: `url(${GetImage.indexImageMobile})`
+            backgroundImage: `url(${Variables.images.indexImageMobile})`
         },
         backgroundPosition: 'center center',
         backgroundSize: 'cover',
