@@ -3,7 +3,13 @@ import indexImageMobile from '../../assets/images/index-image-mobile.jpg'
 import rodapeDesktop from '../../assets/images/rodape-desktop.jpg'
 import rodapeMobile from '../../assets/images/rodape-mobile.jpg'
 
-import LogoIno8 from '../../assets/logo/logoIn8Svg'
+import logoIno8 from '../../assets/logo/logo-in8-dev.svg'
+
+import hamburguerWhite from '../../assets/icons/hamburguer-aberto.svg'
+import hamburguerBlue from '../../assets/icons/hamburguer-fechado.svg'
+
+
+import helveticaUL25 from '../../assets/fonts/Helvetica25UltraLt.ttf'
 
 const Variables = {
 
@@ -20,7 +26,9 @@ const Variables = {
         registerBackground: '#29abe2',
         registerListTitle: '#29abe2'
     },
-
+    fonts: {
+        helveticaUL25:  helveticaUL25,
+    },
     //imagens padrões
     images: {
         indexImage: indexImage,
@@ -29,9 +37,14 @@ const Variables = {
         rodapeMobile: rodapeMobile,
     },
 
+    icons: {
+        toggleOpenedIcon: hamburguerWhite,
+        toggleClosedIcon: hamburguerBlue,
+    },
+
     //logos padrões
     logos: {
-        in8: LogoIno8
+        in8: logoIno8
     }
 }
 

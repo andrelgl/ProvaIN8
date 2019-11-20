@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 70">
+    <title>
+        hamburguer0
+    </title>
+    <g id="Camada_2" data-name="Camada 2">
+        <g id="Camada_1-2" data-name="Camada 1">
+            <path fill="#00A1D9" d="M77,10H5A5,5,0,0,1,5,0H77a5,5,0,0,1,0,10Z"/>
+            <path fill="#00A1D9" d="M77,40H5A5,5,0,0,1,5,30H77a5,5,0,0,1,0,10Z"/>
+            <path fill="#00A1D9" d="M77,70H5A5,5,0,0,1,5,60H77a5,5,0,0,1,0,10Z"/>
+        </g>
+    </g>
+</svg>

@@ -1,3 +1,33 @@
+@font-face {
+  font-family: "Helvetica";
+  font-style: normal;
+  src: url(/fonts/Helvetica25UltraLt.ttf?02149d20a703c6cbabd765d39444c09f) format("truetype");
+}
+
+@font-face {
+  font-family: "Helvetica Condensed";
+  font-style: normal;
+  src: url(/fonts/HelveticaCondensed.ttf?76252828a80f3f2da41b7acd51bbf9ba) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Regular";
+  font-style: normal;
+  src: url(/fonts/Roboto-Regular_0.ttf?54a91b0619ccf9373d525109268219dc) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Light";
+  font-style: normal;
+  src: url(/fonts/Roboto-Light_0.ttf?e22062b3188c8199283ef2aa835d4653) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  src: url(/fonts/RobotoCondensed.ttf?52ee8b598488b1ffbaa93e50cbd6a2f4) format("truetype");
+}
+
 body {
   padding: 0 !important;
   margin: 0 !important;
