@@ -66232,17 +66232,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/assets/fonts/Helvetica25UltraLt.ttf":
-/*!*******************************************************!*\
-  !*** ./resources/assets/fonts/Helvetica25UltraLt.ttf ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/fonts/Helvetica25UltraLt.ttf?02149d20a703c6cbabd765d39444c09f";
-
-/***/ }),
-
 /***/ "./resources/assets/icons/hamburguer-aberto.svg":
 /*!******************************************************!*\
   !*** ./resources/assets/icons/hamburguer-aberto.svg ***!
@@ -66261,7 +66250,7 @@ module.exports = "/images/hamburguer-aberto.svg?bea31d42097d9ca33222674865c40ba2
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/hamburguer-fechado.svg?c152704fdd3cb7e7246b0f6a74fc832a";
+module.exports = "/images/hamburguer-fechado.svg?8f0ff092df97c0eb8f114caace4747de";
 
 /***/ }),
 
@@ -66316,7 +66305,7 @@ module.exports = "/images/rodape-mobile.jpg?f575965dec9d09c1d0240be4467d0d70";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/logo-in8-dev.svg?950f0757a9e501dbef0ab847b0eac7a2";
+module.exports = "/images/logo-in8-dev.svg?a7cd72a9e88aba2f2b664e5bb680f65f";
 
 /***/ }),
 
@@ -66415,16 +66404,23 @@ var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"]
     '@media (max-width: 1024px)': {
       justifyContent: 'space-between',
       padding: '0 4rem'
+    },
+    '@media (max-Width: 540px)': {
+      justifyContent: 'space-between',
+      padding: '0 2rem'
     }
   },
   in8Logo: {
-    width: '200px'
+    width: '200px',
+    '@media (max-Width: 540px)': {
+      width: '150px'
+    }
   },
   listInline: {
     display: 'flex',
     color: 'white',
     listStyle: 'none',
-    width: '240px',
+    width: '260px',
     justifyContent: 'space-between',
     fontSize: '18px',
     '& li': {
@@ -66452,6 +66448,9 @@ var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"]
       position: 'initial',
       zIndex: 9000,
       cursor: 'pointer'
+    },
+    '@media (max-Width: 540px)': {
+      width: '40px'
     }
   },
   toggleMenu: {
@@ -66463,20 +66462,13 @@ var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"]
     backgroundColor: "".concat(_utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].colors.registerBackground),
     display: 'flex',
     flex: 1,
-    paddingLeft: '1.6rem',
     alignItems: 'flex-end',
     '&:before': {
       transitionDelay: '0.01s'
+    },
+    '@media (max-Width: 540px)': {
+      height: '350px'
     }
-  },
-  toggleMenuEnv: {
-    width: '300px',
-    height: '400px',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    zIndex: '-1',
-    visibility: 'hidden'
   },
   list: {
     display: 'flex',
@@ -66486,7 +66478,13 @@ var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"]
     color: 'white',
     listStyle: 'none',
     fontSize: '25px',
-    'marginBottom': '3rem',
+    marginBottom: '3rem',
+    marginLeft: '1.5rem',
+    '@media (max-Width: 540px)': {
+      paddingInlineStart: 0,
+      marginLeft: '2rem',
+      marginBottom: '2rem'
+    },
     '& li': {
       '& a': {
         transition: '300ms',
@@ -66503,35 +66501,54 @@ var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"]
 var OptionsList = function OptionsList(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: props.freeStyle
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "cadastro")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "lista")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "sobre mim")));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "cadastro")), props.dot && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "\u25CF"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "lista")), props.dot && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "\u25CF"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "sobre mim")));
 };
 
 var Navbar = function Navbar() {
   var classes = useStyles();
+  var menu = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
       menuState = _useState2[0],
-      setMenuState = _useState2[1];
+      setMenuState = _useState2[1]; // close toggle menu if click out
 
-  var showMenu = function showMenu() {
-    setMenuState(menuState === false ? true : false);
+
+  var handleClick = function handleClick(e) {
+    if (menu.current.contains(e.target)) return;
+    setMenuState(false);
+  }; // close toggle menu if resize window
+
+
+  var handleResize = function handleResize(e) {
+    setMenuState(false);
   };
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    document.addEventListener('mousedown', handleClick);
+    window.addEventListener('resize', handleResize);
+    return function () {
+      document.removeEventListener('mousedown', handleClick);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.navbar
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: classes.toggleIcon,
-    src: menuState ? _utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].icons.toggleClosedIcon : _utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].icons.toggleOpenedIcon,
-    onClick: showMenu
+    src: !menuState ? _utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].icons.toggleClosedIcon : _utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].icons.toggleOpenedIcon,
+    onClick: function onClick(e) {
+      return setMenuState(!menuState);
+    }
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: classes.in8Logo,
     src: _utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].logos.in8
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(OptionsList, {
-    freeStyle: classes.listInline
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "".concat(menuState ? classes.toggleMenuEnv : classes.toggleMenu),
-    onMouseOut: showMenu
+    freeStyle: classes.listInline,
+    dot: true
+  }), menuState && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    ref: menu,
+    className: classes.toggleMenu
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(OptionsList, {
     freeStyle: classes.list
   })));
@@ -66601,6 +66618,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ //style component
 
 var useStyle = Object(react_jss__WEBPACK_IMPORTED_MODULE_2__["createUseStyles"])({
   container: {
@@ -66611,9 +66629,35 @@ var useStyle = Object(react_jss__WEBPACK_IMPORTED_MODULE_2__["createUseStyles"])
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    display: 'flex',
-    flex: 1,
     height: '940px'
+  },
+  text: {
+    color: 'white',
+    fontFamily: 'Helvetica',
+    fontVariantCaps: 'all-petite-caps',
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1',
+    alignItems: 'center',
+    marginTop: '100px',
+    marginLeft: '-30%',
+    '@media (max-width: 768px)': {
+      marginTop: '-3rem',
+      marginLeft: '0'
+    }
+  },
+  title: {
+    marginBottom: '-1.8rem',
+    fontSize: '10rem',
+    '@media (max-Width: 540px)': {
+      fontSize: '7rem'
+    }
+  },
+  subtitle: {
+    fontSize: '4.2rem',
+    '@media (max-Width: 540px)': {
+      fontSize: '2.9rem'
+    }
   }
 });
 
@@ -66621,7 +66665,13 @@ var Header = function Header() {
   var classes = useStyle();
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.container
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.text
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.title
+  }, "Est\xE1gio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.subtitle
+  }, "Prova de sele\xE7\xE3o")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
@@ -66643,19 +66693,86 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_variables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/variables */ "./resources/js/utils/variables.js");
 
 
+ //component Style
 
 var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"])({
-  container: {
+  wraper: {
     backgroundColor: "".concat(_utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].colors.registerBackground),
-    height: '920px'
+    height: '600px',
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+    alignItems: 'center',
+    '& p': {
+      fontFamily: 'Helvetica',
+      fontSize: '4.2rem',
+      fontVariantCaps: 'all-petite-caps',
+      color: 'white',
+      '@media (max-Width: 540px)': {
+        fontSize: '3rem'
+      }
+    },
+    '@media (max-Width: 540px)': {
+      padding: '0 2rem'
+    }
+  },
+  formInput: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+    maxWidth: '500px',
+    justifyContent: 'space-between',
+    width: '100%'
+  },
+  inputContainer: {
+    position: 'relative',
+    '& input': {
+      border: 0,
+      borderBottom: '2px solid #9e9e9e',
+      outline: 'none',
+      transition: '.2s ease-in-out',
+      boxSizing: 'border-box'
+    } //modelo do input nesse site
+    //https://mariosouto.com/inputs-materializados-com-css/
+
+  },
+  formConfirm: {
+    display: 'flex',
+    flex: 1,
+    alignItems: 'center',
+    width: '296px',
+    '& button': {
+      height: '56px',
+      minWidth: '100%',
+      backgroundColor: "".concat(_utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].colors.buttonRegisterBackground),
+      color: "".concat(_utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].colors.buttonRegisterText),
+      fontFamily: 'Helvetica',
+      fontVariantCaps: 'all-petite-caps',
+      fontSize: '3rem',
+      border: 'none'
+    }
   }
 });
 
 var Register = function Register() {
   var classes = useStyles();
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.container
-  }, "Cadastrar");
+    className: classes.wraper
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Cadastro"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    action: "",
+    className: classes.formInput
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.inputContainer
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    id: "name",
+    type: "text",
+    pattern: ".+",
+    required: true
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "name"
+  }, "Nome"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.formConfirm
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Cadastrar")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Register);
@@ -66786,9 +66903,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_icons_hamburguer_aberto_svg__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_icons_hamburguer_aberto_svg__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _assets_icons_hamburguer_fechado_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/icons/hamburguer-fechado.svg */ "./resources/assets/icons/hamburguer-fechado.svg");
 /* harmony import */ var _assets_icons_hamburguer_fechado_svg__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_icons_hamburguer_fechado_svg__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _assets_fonts_Helvetica25UltraLt_ttf__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/fonts/Helvetica25UltraLt.ttf */ "./resources/assets/fonts/Helvetica25UltraLt.ttf");
-/* harmony import */ var _assets_fonts_Helvetica25UltraLt_ttf__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_fonts_Helvetica25UltraLt_ttf__WEBPACK_IMPORTED_MODULE_7__);
-
 
 
 
@@ -66808,9 +66922,6 @@ var Variables = {
     registerBackground: '#29abe2',
     registerListTitle: '#29abe2'
   },
-  fonts: {
-    helveticaUL25: _assets_fonts_Helvetica25UltraLt_ttf__WEBPACK_IMPORTED_MODULE_7___default.a
-  },
   //imagens padrões
   images: {
     indexImage: _assets_images_index_image_jpg__WEBPACK_IMPORTED_MODULE_0___default.a,
@@ -66818,6 +66929,7 @@ var Variables = {
     rodapeDesktop: _assets_images_rodape_desktop_jpg__WEBPACK_IMPORTED_MODULE_2___default.a,
     rodapeMobile: _assets_images_rodape_mobile_jpg__WEBPACK_IMPORTED_MODULE_3___default.a
   },
+  //icones usados
   icons: {
     toggleOpenedIcon: _assets_icons_hamburguer_aberto_svg__WEBPACK_IMPORTED_MODULE_5___default.a,
     toggleClosedIcon: _assets_icons_hamburguer_fechado_svg__WEBPACK_IMPORTED_MODULE_6___default.a

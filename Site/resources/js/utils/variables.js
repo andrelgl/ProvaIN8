@@ -8,9 +8,6 @@ import logoIno8 from '../../assets/logo/logo-in8-dev.svg'
 import hamburguerWhite from '../../assets/icons/hamburguer-aberto.svg'
 import hamburguerBlue from '../../assets/icons/hamburguer-fechado.svg'
 
-
-import helveticaUL25 from '../../assets/fonts/Helvetica25UltraLt.ttf'
-
 const Variables = {
 
     //cores padrões
@@ -26,9 +23,7 @@ const Variables = {
         registerBackground: '#29abe2',
         registerListTitle: '#29abe2'
     },
-    fonts: {
-        helveticaUL25:  helveticaUL25,
-    },
+
     //imagens padrões
     images: {
         indexImage: indexImage,
@@ -36,7 +31,7 @@ const Variables = {
         rodapeDesktop: rodapeDesktop,
         rodapeMobile: rodapeMobile,
     },
-
+    //icones usados
     icons: {
         toggleOpenedIcon: hamburguerWhite,
         toggleClosedIcon: hamburguerBlue,
