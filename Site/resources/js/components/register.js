@@ -1,6 +1,7 @@
 import React from 'react'
 import { createUseStyles } from 'react-jss'
 import Variables from '../utils/variables'
+import InputIN8 from './utils/input-in8'
 
 //component Style
 const useStyles = createUseStyles({
@@ -32,18 +33,7 @@ const useStyles = createUseStyles({
         justifyContent: 'space-between',
         width: '100%',
     },
-    inputContainer: {
-        position: 'relative',
-        '& input': {
-            border: 0,
-            borderBottom: '2px solid #9e9e9e',
-            outline: 'none',
-            transition: '.2s ease-in-out',
-            boxSizing: 'border-box'
-        },
-        //modelo do input nesse site
-        //https://mariosouto.com/inputs-materializados-com-css/
-    },
+
     formConfirm: {
         display: 'flex',
         flex: 1,
@@ -69,10 +59,10 @@ const Register = () => {
         <div className={classes.wraper}>
             <p>Cadastro</p>
             <form action='' className={classes.formInput}>
-                <div className={classes.inputContainer}>
-                    <input id='name' type='text' pattern='.+' required />
-                    <label for='name'>Nome</label>
-                </div>
+                <InputIN8 label='Nome' id='name' type='text'/>
+                <InputIN8 label='E-mail' id='email' type='text'/>
+                <InputIN8 label='Nascimento' id='born' type='text'/>
+                <InputIN8 label='Telefone' id='phone' type='text'/>
             </form>
             <div className={classes.formConfirm}>
                 <button>Cadastrar</button>

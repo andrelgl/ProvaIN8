@@ -66691,6 +66691,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_jss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jss */ "./node_modules/react-jss/dist/react-jss.esm.js");
 /* harmony import */ var _utils_variables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/variables */ "./resources/js/utils/variables.js");
+/* harmony import */ var _utils_input_in8__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/input-in8 */ "./resources/js/components/utils/input-in8.js");
+
 
 
  //component Style
@@ -66724,18 +66726,6 @@ var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"]
     justifyContent: 'space-between',
     width: '100%'
   },
-  inputContainer: {
-    position: 'relative',
-    '& input': {
-      border: 0,
-      borderBottom: '2px solid #9e9e9e',
-      outline: 'none',
-      transition: '.2s ease-in-out',
-      boxSizing: 'border-box'
-    } //modelo do input nesse site
-    //https://mariosouto.com/inputs-materializados-com-css/
-
-  },
   formConfirm: {
     display: 'flex',
     flex: 1,
@@ -66761,16 +66751,23 @@ var Register = function Register() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Cadastro"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     action: "",
     className: classes.formInput
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.inputContainer
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_input_in8__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: "Nome",
     id: "name",
-    type: "text",
-    pattern: ".+",
-    required: true
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "name"
-  }, "Nome"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    type: "text"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_input_in8__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: "E-mail",
+    id: "email",
+    type: "text"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_input_in8__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: "Nascimento",
+    id: "born",
+    type: "text"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_input_in8__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: "Telefone",
+    id: "phone",
+    type: "text"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.formConfirm
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Cadastrar")));
 };
@@ -66808,6 +66805,84 @@ var Table = function Table() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Table);
+
+/***/ }),
+
+/***/ "./resources/js/components/utils/input-in8.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/utils/input-in8.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jss */ "./node_modules/react-jss/dist/react-jss.esm.js");
+
+
+var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"])({
+  inputContainer: {
+    position: 'relative',
+    '& input, & label': {
+      width: '100%',
+      height: '2rem',
+      fontSize: '1rem'
+    },
+    '& input': {
+      border: 0,
+      borderBottom: '1px solid #fff',
+      outline: 'none',
+      transition: '.2s ease-in-out',
+      boxSizing: 'border-box',
+      backgroundColor: 'transparent',
+      fontFamily: 'Roboto Condensed',
+      color: '#fff',
+      '&:valid, &:focus': {
+        borderBottom: '2px solid #fff',
+        '&+ label': {
+          color: '#fff',
+          fontSize: '.8rem',
+          top: '-30px',
+          pointerEvents: 'none'
+        }
+      }
+    },
+    '& label': {
+      top: 0,
+      left: 0,
+      right: 0,
+      color: 'white',
+      display: 'flex',
+      alignItems: 'center',
+      position: 'absolute',
+      cursor: 'text',
+      transition: '.2s ease-in-out',
+      boxSizing: 'border-box',
+      fontFamily: 'Roboto Regular'
+    }
+  }
+});
+
+var InputIN8 = function InputIN8(_ref) {
+  var id = _ref.id,
+      label = _ref.label,
+      type = _ref.type;
+  var classes = useStyles();
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.inputContainer
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    id: id,
+    type: type,
+    pattern: ".+",
+    required: true
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": id
+  }, label));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (InputIN8);
 
 /***/ }),
 
