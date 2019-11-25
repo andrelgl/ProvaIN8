@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import Header from '../components/header'
 import Register from '../components/register'
-import Table from '../components/table'
+import EntriesList from '../components/entriesList'
 import Footer from '../components/footer'
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
         <div>
             <Header />
             <Register />
-            <Table />
+            <EntriesList />
             <Footer />
         </div>
       </BrowserRouter>

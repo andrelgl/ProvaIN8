@@ -51,7 +51,7 @@ const InputIN8 = ({id,label,type}) => {
     return (
         <div className={classes.inputContainer}>
             <input id={id} type={type} pattern='.+' required />
-            <label for={id}>{label}</label>
+            <label htmlFor={id}>{label}</label>
         </div>
     )
 }
