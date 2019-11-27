@@ -7,6 +7,7 @@ import logoIno8 from '../../assets/logo/logo-in8-dev.svg'
 
 import hamburguerWhite from '../../assets/icons/hamburguer-aberto.svg'
 import hamburguerBlue from '../../assets/icons/hamburguer-fechado.svg'
+import top from '../../assets/icons/topo-pag.svg'
 
 const Variables = {
 
@@ -35,6 +36,7 @@ const Variables = {
     icons: {
         toggleOpenedIcon: hamburguerWhite,
         toggleClosedIcon: hamburguerBlue,
+        topPage: top
     },
 
     //logos padrões

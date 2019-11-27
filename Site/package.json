@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
-        "axios": "^0.19",
+        "axios": "^0.19.0",
         "cross-env": "^5.1",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
@@ -26,6 +26,7 @@
         "create-react-context": "^0.3.0",
         "react-jss": "^10.0.0",
         "react-router-dom": "^5.1.2",
-        "react-svg": "^10.0.25"
+        "react-svg": "^10.0.25",
+        "uuid": "^3.3.3"
     }
 }

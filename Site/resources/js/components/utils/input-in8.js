@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 } from 'uuid'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
@@ -44,14 +45,18 @@ const useStyles = createUseStyles({
             fontFamily: 'Roboto Regular'
         }
     },
+    errors: {}
 })
 
-const InputIN8 = ({id,label,type}) => {
+
+const InputIN8 = ({ label, type, onChange, value, errors = [] }) => {
     const classes = useStyles()
+    const id = v4()
     return (
         <div className={classes.inputContainer}>
-            <input id={id} type={type} pattern='.+' required />
+            <input id={id} type={type} pattern='.+' value={value} onChange={e => onChange(e.target.value)} required />
             <label htmlFor={id}>{label}</label>
+            {errors.length > 0 && <div className={classes.errors}>{errors.map(error => <div>{error}</div>)}</div>}
         </div>
     )
 }

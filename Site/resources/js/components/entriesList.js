@@ -2,6 +2,8 @@ import React, { useState, useLayoutEffect } from 'react'
 import { createUseStyles } from 'react-jss'
 import Variables from '../utils/variables'
 import Table from './utils/table'
+import Tab from './utils/tab'
+import ReactSVG from 'react-svg'
 
 const useStyles = createUseStyles({
     entriesContainer: {
@@ -28,6 +30,17 @@ const useStyles = createUseStyles({
             textAlign: 'center',
         },
     },
+    goTop: {
+        width:'50px',
+        position:'absolute',
+        right: '10rem',
+        cursor: 'pointer',
+        bottom: '-68rem',
+        '@media (max-width: 1400px)': {
+            right: '3rem',
+        },
+
+    }
 
 })
 
@@ -50,10 +63,13 @@ const EntiesList = () => {
 
 
     return (
+        <>
         <div className={classes.entriesContainer}>
             <div className={classes.title}> Lista de cadastro </div>
-            {width > 540 ? <Table /> : <div>oi</div>}
+            {width > 720 ? <Table /> : <Tab/>}
         </div>
+        {width > 1040?<ReactSVG src={Variables.icons.topPage} className={classes.goTop} />: _}
+        </>
     )
 }
 
