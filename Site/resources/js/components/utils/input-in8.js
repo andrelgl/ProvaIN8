@@ -45,7 +45,13 @@ const useStyles = createUseStyles({
             fontFamily: 'Roboto Regular'
         }
     },
-    errors: {}
+    errors: {
+        fontFamily: 'Roboto Regular',
+        fontSize: '12px',
+        color: 'red',
+        padding: '0.25rem 0',
+        marginBottom: '1rem'
+    }
 })
 
 

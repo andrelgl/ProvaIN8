@@ -24,6 +24,7 @@ const useStyles = createUseStyles({
         fontFamily: 'Helvetica',
         fontSize: '4.2rem',
         fontVariantCaps: 'all-petite-caps',
+        maxHeight: '200px',
         color: `${Variables.colors.registerListTitle}`,
         '@media (max-Width: 540px)': {
             fontSize: '3rem',
@@ -31,11 +32,11 @@ const useStyles = createUseStyles({
         },
     },
     goTop: {
-        width:'50px',
-        position:'absolute',
+        width: '45px',
+        position: 'absolute',
         right: '10rem',
         cursor: 'pointer',
-        bottom: '-68rem',
+        bottom: '-74rem',
         '@media (max-width: 1400px)': {
             right: '3rem',
         },
@@ -61,14 +62,18 @@ const EntiesList = () => {
     const classes = useStyles()
     const width = useWindowSize();
 
+    const goTo = () => {
+        window.scrollTo(0, 0)
+    }
 
     return (
         <>
-        <div className={classes.entriesContainer}>
-            <div className={classes.title}> Lista de cadastro </div>
-            {width > 720 ? <Table /> : <Tab/>}
-        </div>
-        {width > 1040?<ReactSVG src={Variables.icons.topPage} className={classes.goTop} />: _}
+            <div id='section2' className={classes.entriesContainer}>
+                <div className={classes.title}> Lista de cadastro </div>
+                {width > 720 ? <Table /> : <Tab />}
+            </div>
+            {width > 1040 &&
+                <ReactSVG src={Variables.icons.topPage} onClick={goTo} className={classes.goTop} />}
         </>
     )
 }

@@ -7,19 +7,17 @@ import Register from '../components/register'
 import EntriesList from '../components/entriesList'
 import Footer from '../components/footer'
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
-      <BrowserRouter>
-        <div>
-            <Header />
-            <Register />
-            <EntriesList />
-            <Footer />
-        </div>
-      </BrowserRouter>
+        <BrowserRouter>
+            <div>
+                <Header />
+                <Register />
+                <EntriesList />
+                <Footer />
+            </div>
+        </BrowserRouter>
     )
-  }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'))

@@ -61,6 +61,7 @@ const useStyles = createUseStyles({
 
 })
 
+// modelo do initia state
 const initialState = {
     name: { value: '', errors: [] },
     email: { value: '', errors: [] },
@@ -74,21 +75,22 @@ const Register = ({ onSubimit }) => {
 
     const setValue = (key) => (value) => setData({ ...data, [key]: { ...data[key], value } })
     const setErrors = (key, errors) => setData({ ...data, [key]: { ...data[key], errors } })
+    // validação de campos
     const validate = () => {
         const n = Object.keys(data).reduce((a, b) => ({ ...a, [b]: { ...data[b], errors: [] } }), {})
 
         if (!n.name.value)
-            n.name.errors.push('Necessario informar um nome')
+            n.name.errors.push('Necessário informar um nome!')
         if (!n.email.value)
-            n.email.errors.push('Necessario informar um email')
+            n.email.errors.push('Necessário informar um e-mail!')
         if (!/[^@]+@[^\.]+\..+/i.test(n.email.value))
-            n.email.errors.push('O email informado não é valido')
+            n.email.errors.push('O email informado não é valido!')
         if (!n.date_birth.value)
-            n.date_birth.errors.push('Necessario informar uma data de nascimento')
+            n.date_birth.errors.push('Necessário informar uma data de nascimento!')
         if (!Date.parse(n.date_birth.value) || !/(\d{2}\/\d{2}\/\d{4})/g.test(n.date_birth.value))
-            n.date_birth.errors.push('Formato da data incorreta')
+            n.date_birth.errors.push('Data incorreta, formato aceito dd/mm/aaaa')
         if (!n.telephone.value)
-            n.telephone.errors.push('Necessario informar um telefone')
+            n.telephone.errors.push('Necessário informar um telefone!')
 
         setData(n)
 
@@ -113,7 +115,7 @@ const Register = ({ onSubimit }) => {
     }
 
     return (
-        <div className={classes.registerContainer}>
+        <div id='section1' className={classes.registerContainer}>
             <div className={classes.title}>
                 Cadastro
             </div>

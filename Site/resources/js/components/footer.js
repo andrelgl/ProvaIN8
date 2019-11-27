@@ -1,7 +1,8 @@
 import React from 'react'
-import {createUseStyles} from 'react-jss'
+import { createUseStyles } from 'react-jss'
 import Variables from '../utils/variables'
 
+// component style
 const useStyles = createUseStyles({
     footerContainer: {
         backgroundImage: `url(${Variables.images.rodapeDesktop})`,
@@ -15,10 +16,10 @@ const useStyles = createUseStyles({
         backgroundRepeat: 'no-repeat',
         display: 'flex',
         flex: 1,
-        flexDirection:'column',
-        alignItems:'center',
-        justifyContent:'center',
-        fontFamily:'Roboto Light',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontFamily: 'Roboto Light',
         color: 'white'
     }
 })
@@ -26,12 +27,13 @@ const useStyles = createUseStyles({
 const Footer = () => {
     const classes = useStyles()
     return (
-      <div className={classes.footerContainer}>
-        <p>André Luiz Gomes Lages</p>
-        <p>andrelgl@hotmail.com.br</p>
-        <p>(31) 9 9666-1111</p>
-        <p>Unibh</p>
-      </div>)
+        <div  id='section3' className={classes.footerContainer}>
+            <p>André Luiz Gomes Lages</p>
+            <p>andrelgl@hotmail.com.br</p>
+            <p>(31) 9 9476-8390</p>
+            <p>Unibh</p>
+        </div>
+    )
 }
 
 export default Footer

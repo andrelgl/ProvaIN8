@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { createUseStyles } from 'react-jss'
 import Variables from '../../utils/variables'
 
@@ -9,6 +9,8 @@ const useStyles = createUseStyles({
         width: '100%',
         maxWidth: '800px',
         justifyContent: 'center',
+        maxHeight: '200px',
+        overflowY: 'auto',
         '& table': {
             width: '100%',
             borderCollapse: 'collapse',
@@ -46,10 +48,40 @@ const useStyles = createUseStyles({
         }
     }
 })
+const getItems = () => {
+    const [items, setItems] = useState([])
 
-const Table = (props) => {
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await axios.get('/api/traineers')
+                .then(res => res.data)
+            setItems(data)
+        }
+        fetchData()
+    }, [])
 
+    return items
+}
+
+
+const Table = () => {
+    const items = getItems()
     const classes = useStyles()
+    let cont = 1
+    const row = () =>
+        items.map(item => (
+            <tr
+                key={`${item.id}-row`}
+                role='row'
+                id={`${item.id}-panel`}
+            >
+                <td>{cont++}</td>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+                <td>{item.date_birth}</td>
+                <td>{item.telephone}</td>
+            </tr>
+        ))
 
     return (
         <div className={classes.tableWrapper}>
@@ -61,34 +93,7 @@ const Table = (props) => {
                     <th>Nascimento</th>
                     <th>Telefone</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                </tr>
+                {row()}
             </table>
         </div>
     )

@@ -28,6 +28,10 @@
   src: url(/fonts/RobotoCondensed.ttf?52ee8b598488b1ffbaa93e50cbd6a2f4) format("truetype");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding: 0 !important;
   margin: 0 !important;

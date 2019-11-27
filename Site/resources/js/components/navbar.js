@@ -30,7 +30,7 @@ const useStyles = createUseStyles({
     },
     listInline: {
         display: 'flex',
-        color: 'white',
+        color: [['white'], '!important'],
         listStyle: 'none',
         width: '260px',
         justifyContent: 'space-between',
@@ -42,7 +42,8 @@ const useStyles = createUseStyles({
                 borderColor: 'white',
             },
             '& a': {
-                cursor: 'pointer'
+                color: 'inherit',
+                textDecoration: [['none'],'!important']
             }
         },
         '@media (max-width: 1024px)': {
@@ -101,25 +102,32 @@ const useStyles = createUseStyles({
             '& a': {
                 transition: '300ms',
                 borderBottom: '1px solid transparent',
-                cursor: 'pointer',
+                cursor: [['pointer'],'!important'],
+                color: 'inherit',
+                textDecoration: [['none'],'!important'],
                 '&:hover': {
                     borderColor: 'white',
                 }
             },
         }
-    }
+    },
 })
 
 const OptionsList = (props) => {
+
     return (
         <ul className={props.freeStyle}>
-            <li><a>cadastro</a></li>
-            {props.dot &&
-                (<a>&#x25cf;</a>)}
-            <li><a>lista</a></li>
-            {props.dot &&
-                (<a>&#x25cf;</a>)}
-            <li><a>sobre mim</a></li>
+            <li>
+                <a href="#section1">cadastro</a>
+            </li>
+            {props.dot && (<a>&#x25cf;</a>)}
+            <li>
+                <a href="#section2">lista</a>
+            </li>
+            {props.dot && (<a>&#x25cf;</a>)}
+            <li>
+                <a href="#section3">sobre mim</a>
+            </li>
         </ul>
     )
 }
@@ -129,7 +137,6 @@ const Navbar = () => {
 
     const menu = useRef()
     const [menuState, setMenuState] = useState(false)
-
     // close toggle menu if click out
     const handleClick = e => {
         if (menu.current.contains(e.target)) return

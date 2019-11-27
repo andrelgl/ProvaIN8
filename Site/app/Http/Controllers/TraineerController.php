@@ -12,7 +12,7 @@ class TraineerController extends Controller
     {
         $traineers = Trainee::orderBy('id', 'desc')
                             ->get();
-    return $traineers->toJson();
+        return $traineers->toJson();
     }
 
     public function store(Request $request)
