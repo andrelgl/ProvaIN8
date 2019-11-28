@@ -32,16 +32,14 @@ const useStyles = createUseStyles({
         },
     },
     goTop: {
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'flex-end'
+    },
+    icon: {
         width: '45px',
-        position: 'fixed',
-        right: '100px',
-        bottom: '380px',
         cursor: 'pointer',
-        transition: '.2s',
-        '@media (max-width: 1400px)': {
-            right: '3rem',
-        },
-
+        marginRight: '90px',
     }
 
 })
@@ -59,20 +57,21 @@ const useWindowSize = () => {
     return size
 }
 
-const EntiesList = ({traineers}) => {
+const EntiesList = ({ traineers }) => {
     const classes = useStyles()
     const width = useWindowSize()
 
     return (
-        <>
-            <div id='section2' className={classes.entriesContainer}>
-                <div className={classes.title}> Lista de cadastro </div>
-                {width > 720 ? <Table  data={traineers} /> : <Tab data={traineers} />}
-            </div>
-            {width > 1040 &&
-                <ReactSVG src={Variables.icons.topPage}
-                    onClick={() => window.scrollTo(0, 0)} className={classes.goTop} />}
-        </>
+        <div id='section2' className={classes.entriesContainer}>
+            <div className={classes.title}> Lista de cadastro </div>
+            {width > 720 ? <Table data={traineers} /> : <Tab data={traineers} />}
+            {width > 1100 &&
+                <div className={classes.goTop}>
+                    <ReactSVG src={Variables.icons.topPage}
+                        onClick={() => window.scrollTo(0, 0)} className={classes.icon} />
+                </div>
+            }
+        </div>
     )
 }
 

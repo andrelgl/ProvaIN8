@@ -9,7 +9,7 @@ const useStyles = createUseStyles({
         width: '100%',
         maxWidth: '800px',
         justifyContent: 'center',
-        maxHeight: '200px',
+        maxHeight: '220px',
         overflowY: 'auto',
     },
     table: {

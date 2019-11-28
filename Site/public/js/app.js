@@ -67643,15 +67643,14 @@ var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"]
     }
   },
   goTop: {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'flex-end'
+  },
+  icon: {
     width: '45px',
-    position: 'fixed',
-    right: '100px',
-    bottom: '380px',
     cursor: 'pointer',
-    transition: '.2s',
-    '@media (max-width: 1400px)': {
-      right: '3rem'
-    }
+    marginRight: '90px'
   }
 });
 
@@ -67679,7 +67678,7 @@ var EntiesList = function EntiesList(_ref) {
   var traineers = _ref.traineers;
   var classes = useStyles();
   var width = useWindowSize();
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "section2",
     className: classes.entriesContainer
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67688,13 +67687,15 @@ var EntiesList = function EntiesList(_ref) {
     data: traineers
   }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: traineers
-  })), width > 1040 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), width > 1100 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.goTop
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg__WEBPACK_IMPORTED_MODULE_5__["default"], {
     src: _utils_variables__WEBPACK_IMPORTED_MODULE_2__["default"].icons.topPage,
     onClick: function onClick() {
       return window.scrollTo(0, 0);
     },
-    className: classes.goTop
-  }));
+    className: classes.icon
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (EntiesList);
@@ -68407,7 +68408,7 @@ var useStyles = Object(react_jss__WEBPACK_IMPORTED_MODULE_1__["createUseStyles"]
     width: '100%',
     maxWidth: '800px',
     justifyContent: 'center',
-    maxHeight: '200px',
+    maxHeight: '220px',
     overflowY: 'auto'
   },
   table: {

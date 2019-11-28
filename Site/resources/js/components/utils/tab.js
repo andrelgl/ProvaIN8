@@ -143,7 +143,6 @@ const Tab = ({ data }) => {
             </div>
         ))
 
-
     return (
         <div className={classes.tabWrapper}>
             <div className={classes.tabInner}>
