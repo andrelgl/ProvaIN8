@@ -69,7 +69,7 @@ const initialState = {
     telephone: { value: '', errors: [] },
 }
 
-const Register = ({ onSubimit }) => {
+const Register = ({onSubmit}) => {
     const classes = useStyles()
     const [data, setData] = useState(initialState)
 
@@ -87,7 +87,7 @@ const Register = ({ onSubimit }) => {
             n.email.errors.push('O email informado não é valido!')
         if (!n.date_birth.value)
             n.date_birth.errors.push('Necessário informar uma data de nascimento!')
-        if (!Date.parse(n.date_birth.value) || !/(\d{2}\/\d{2}\/\d{4})/g.test(n.date_birth.value))
+        if (!/(\d{2}\/\d{2}\/\d{4})/g.test(n.date_birth.value))
             n.date_birth.errors.push('Data incorreta, formato aceito dd/mm/aaaa')
         if (!n.telephone.value)
             n.telephone.errors.push('Necessário informar um telefone!')
@@ -99,11 +99,13 @@ const Register = ({ onSubimit }) => {
 
     const submit = async () => {
         try {
+
             if(!validate()) return
             const trainee = Object.keys(data).reduce((a, b) => ({ ...a, [b]: data[b].value }), {})
             const response = await axios.post('/api/traineers', trainee)
+
             if (response.status < 400){
-                onSubimit()
+                onSubmit()
                 setData(initialState)
             }
         } catch (error) {

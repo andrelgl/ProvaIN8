@@ -26,7 +26,8 @@ const useStyles = createUseStyles({
         fontWeight: 600,
         '&:not(:last-child)': {
             marginRight: '0.25rem'
-        }
+        },
+
     },
     tabSelected: {
         backgroundColor: 'white',
@@ -87,7 +88,7 @@ const tabUpdate = (selectedItem) => {
         const fetchData = async () => {
             const data = await axios.get('/api/traineers')
                 .then(res => res.data)
-           setItems(data)
+            setItems(data)
         }
         fetchData()
     }, [])
@@ -95,35 +96,33 @@ const tabUpdate = (selectedItem) => {
     return [items, activeItem, changeItem]
 }
 
-const Tab = () => {
+const Tab = ({ data }) => {
     const classes = useStyles()
     const [tabs, activeTab, setActiveTab] = tabUpdate(1);
 
-    //if (tabs.length < 1) return <div>Sem tabs</div>
-    let cont = 1
     const createTabs = () =>
-        tabs.map(tab => (
+        data.map((tab, i) => (
             <div
-                key={`${tab.id}-tab`}
+                key={`${i}-tab`}
                 role='tab'
-                aria-selected={tab.id === activeTab}
-                id={`${tab.id}-panel`}
-                aria-controls={`${tab.id}-content-panel`}
-                onClick={() => setActiveTab(tab.id, 'tabs')}
-                className={tab.id === activeTab ? `${classes.tab} ${classes.tabSelected}` : `${classes.tab}`}
+                aria-selected={i + 1 === activeTab}
+                id={`${i + 1}-panel`}
+                aria-controls={`${i + 1}-content-panel`}
+                onClick={() => setActiveTab(i + 1, 'tabs')}
+                className={i + 1 === activeTab ? `${classes.tab} ${classes.tabSelected}` : `${classes.tab}`}
             >
-                {cont++}
+                {i + 1}
             </div>
         ))
 
     const createTabsPanels = () =>
-        tabs.map(tab => (
+        tabs.map((tab, i) => (
             <div
-                key={`${tab.id}-panel`}
-                id={`${tab.id}-content-panel`}
+                key={`${i + 1}-panel`}
+                id={`${i + 1}-content-panel`}
                 role='tabpanel'
-                aria-labelledby={`${tab.id}-tab`}
-                className={`${classes.tabPanel} ${tab.id === activeTab ? classes.show : classes.hide}`}
+                aria-labelledby={`${i + 1}-tab`}
+                className={`${classes.tabPanel} ${i + 1 === activeTab ? classes.show : classes.hide}`}
             >
                 <div className={classes.tabPanelContent}>
                     <div>NOME</div>

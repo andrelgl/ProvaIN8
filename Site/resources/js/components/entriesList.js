@@ -33,10 +33,11 @@ const useStyles = createUseStyles({
     },
     goTop: {
         width: '45px',
-        position: 'absolute',
-        right: '10rem',
+        position: 'fixed',
+        right: '100px',
+        bottom: '380px',
         cursor: 'pointer',
-        bottom: '-74rem',
+        transition: '.2s',
         '@media (max-width: 1400px)': {
             right: '3rem',
         },
@@ -58,22 +59,19 @@ const useWindowSize = () => {
     return size
 }
 
-const EntiesList = () => {
+const EntiesList = ({traineers}) => {
     const classes = useStyles()
-    const width = useWindowSize();
-
-    const goTo = () => {
-        window.scrollTo(0, 0)
-    }
+    const width = useWindowSize()
 
     return (
         <>
             <div id='section2' className={classes.entriesContainer}>
                 <div className={classes.title}> Lista de cadastro </div>
-                {width > 720 ? <Table /> : <Tab />}
+                {width > 720 ? <Table  data={traineers} /> : <Tab data={traineers} />}
             </div>
             {width > 1040 &&
-                <ReactSVG src={Variables.icons.topPage} onClick={goTo} className={classes.goTop} />}
+                <ReactSVG src={Variables.icons.topPage}
+                    onClick={() => window.scrollTo(0, 0)} className={classes.goTop} />}
         </>
     )
 }
