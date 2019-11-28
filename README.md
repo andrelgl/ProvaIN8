@@ -5,9 +5,9 @@ O projeto localizado neste repositório faz parte do processo seletivo da empres
 
 ## Dependências
 
-. [NodeJS]([https://nodejs.org/en/](https://nodejs.org/en/));
-. [PHP (7+)]([https://www.php.net/downloads.php](https://www.php.net/downloads.php));
-. [Composer](https://getcomposer.org)
+- [NodeJS](https://nodejs.org/en/);
+- [PHP (7+)](https://www.php.net/downloads.php);
+- [Composer](https://getcomposer.org)
 
 ## Get started
 
