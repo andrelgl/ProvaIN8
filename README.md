@@ -14,17 +14,15 @@ Deverá ser acessado a pasta questões, todas as questões estão separadas em a
 
 Deverá ser acessado a pasta Site pelo console,
 
-Para compilar o Site:
+Para inicializar o Site:
 ```
 npm i
 
 npm run dev
-
 ```
 Em outro console.
 
 Para start o servidor:
 ```
 php artisan serve
-
 ```
